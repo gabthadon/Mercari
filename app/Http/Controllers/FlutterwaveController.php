@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
+use App\Models\Order;
 
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
@@ -12,19 +13,18 @@ class FlutterwaveController extends Controller
 {
     public function index(){
        
-         
+         if(empty($_COOKIE['email']) ||  empty($_COOKIE['_token'])){
+             return redirect('/signin');
+         }
 
-        $user= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
+        $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
       
         
-        if(!$user){
-            return redirect('/signin');
-        }else{
-            //Process Payment
+        //Process Payment
+        $items= \Cart::getcontent();
 
-            $items= \Cart::getcontent();
-
-            $total = \Cart::getTotal();
+        $total = \Cart::getTotal();
+           
 
 
 //This generates a payment reference
@@ -33,15 +33,15 @@ $reference = Flutterwave::generateReference();
   // Enter the details of the payment
   $data = [
     'payment_options' => 'card',
-    'amount' =>  $total,
-    'email' => $user[0]->email,
+    'amount' => $total,
+    'email' => $customer[0]->email,
     'tx_ref' => $reference,
     'currency' => "NGN",
     'redirect_url' => route('callback'),
     'customer' => [
-        'email' => $user[0]->email,
+        'email' => $customer[0]->email,
        
-        "name" => $user[0]->username
+        "name" => $customer[0]->username
     ],
 
   
@@ -53,12 +53,14 @@ $payment = Flutterwave::initializePayment($data);
 
 
 if ($payment['status'] !== 'success') {
-    // notify something went wrong
+    echo("
+    <script> alert('Transaction Failed')  </script>
+    ");
     return;
 }
 
 return redirect($payment['data']['link']);
-}
+
 
       
     }
@@ -69,7 +71,10 @@ return redirect($payment['data']['link']);
 
     public function callback()
     {
-        
+        $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
+        $items= \Cart::getcontent();
+        $total = \Cart::getTotal();
+
         $status = request()->status;
 
         //if payment is successful
@@ -78,7 +83,26 @@ return redirect($payment['data']['link']);
         $transactionID = Flutterwave::getTransactionIDFromCallback();
         $data = Flutterwave::verifyTransaction($transactionID);
 
-        dd($data);
+
+        if($data->currency=='NGN' && $data->amount==$total){
+
+        Order::create([
+            'ref'=>$transactionID,
+            'customer_id'=>$customer[0]->id,
+            'phone'=>$customer[0]->phone,
+            'extra_phone'=>$customer[0]->extra_phone,
+            'address'=>$customer[0]->address,
+            'product'=>$customer[0]->product,
+            'status'=>$customer[0]->status,
+
+        ]);
+
+
+        }
+
+
+
+       
         }
         elseif ($status ==  'cancelled'){
             //Put desired action/code after transaction has been cancelled here
