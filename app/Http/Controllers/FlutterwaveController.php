@@ -25,7 +25,7 @@ class FlutterwaveController extends Controller
 
         $total = \Cart::getTotal();
            
-
+        
 
 //This generates a payment reference
 $reference = Flutterwave::generateReference();
@@ -69,6 +69,12 @@ return redirect($payment['data']['link']);
 
 
 
+
+
+
+
+
+
     public function callback()
     {
         $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
@@ -80,27 +86,24 @@ return redirect($payment['data']['link']);
         //if payment is successful
         if ($status ==  'successful') {
         
-        $transactionID = Flutterwave::getTransactionIDFromCallback();
-        $data = Flutterwave::verifyTransaction($transactionID);
-
-
-        if($data->currency=='NGN' && $data->amount==$total){
-
-        Order::create([
-            'ref'=>$transactionID,
-            'customer_id'=>$customer[0]->id,
-            'phone'=>$customer[0]->phone,
-            'extra_phone'=>$customer[0]->extra_phone,
-            'address'=>$customer[0]->address,
-            'product'=>$customer[0]->product,
-            'status'=>$customer[0]->status,
-
-        ]);
-
-
-        }
-
-
+            echo("
+            <script> alert('Successful')  </script>
+            ");
+            $transactionID = Flutterwave::getTransactionIDFromCallback();
+            $data = Flutterwave::verifyTransaction($transactionID);
+    
+    $product=json_encode($data);
+        
+    
+            Order::create([
+                'ref'=>$transactionID,
+                'customer_id'=>$customer[0]->id,
+              'product'=>$product,
+                'status'=>'1',
+    
+            ]);
+    
+    
 
        
         }
@@ -118,6 +121,9 @@ return redirect($payment['data']['link']);
         // Give value for the transaction
         // Update the transaction to note that you have given value for the transaction
         // You can also redirect to your success page from here
+
+
+  
 
    
 }
