@@ -15,6 +15,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+ 
 
       $post =  Post::inRandomOrder()  
      ->limit(10)

@@ -29,7 +29,7 @@ class FlutterwaveController extends Controller
 
 //This generates a payment reference
 $reference = Flutterwave::generateReference();
-
+dd($customer[0]->email);
   // Enter the details of the payment
   $data = [
     'payment_options' => 'card',
@@ -109,9 +109,13 @@ return redirect($payment['data']['link']);
         }
         elseif ($status ==  'cancelled'){
             //Put desired action/code after transaction has been cancelled here
+            return redirect('/');
         }
         else{
             //Put desired action/code after transaction has failed here
+            echo("
+            <script> alert('Transaction Failed')  </script>
+            ");
         }
         // Get the transaction from your DB using the transaction reference (txref)
         // Check if you have previously given value for the transaction. If you have, redirect to your successpage else, continue
