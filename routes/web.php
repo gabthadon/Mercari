@@ -18,16 +18,23 @@ use App\Http\Controllers\FlutterwaveController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-//Get details of a product
-Route::get('/{id}/{slug}', [HomeController::class, 'show']);
-Route::delete('/cartremove/{id}', [CartController::class, 'update']);
+Route::get('/rave/callback', [FlutterwaveController::class, 'callback'])->name('callback');
+Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
+Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
 });
+
+//Get details of a product
+Route::get('/{id}/{slug}', [HomeController::class, 'show']);
+
+Route::delete('/cartremove/{id}', [CartController::class, 'update']);
+
+
+
+
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -64,21 +71,19 @@ Route::post('/adduser', [AuthController::class, 'add']);
 
 
 
+
 //Login User
 Route::post('/login', [AuthController::class, 'login']);
-
-
-
 
 
 //Process Flutterwave Payment
 Route::get('/process_payment', [FlutterwaveController::class, 'index']);
 
-Route::get('/rave/callback', [FlutterwaveController::class, 'callback'])->name('callback');
 
 
-Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
-Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+
+
+
 
 
 
