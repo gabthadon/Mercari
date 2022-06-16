@@ -77,16 +77,16 @@
 
   
      <div class="signup_text2" id="terms"> 
-       <input   type="checkbox" @change="terms" v-model="checked" style="width:50px; height:30px;">  I agree to the Mercari Terms of Service and Privacy Policy
+       <input  type="checkbox" @change="terms" v-model="checked" style="width:50px; height:30px;">  I agree to the Mercari Terms of Service and Privacy Policy
        <label for="checkbox"> @{{status}} </label>
     
        
   
-       <div id="btn_signup"><input type="submit"   value="Sign Up" class="form-control" 
+       <div id="btn_signup"><input id="termsandcon"  type="submit"   value="Sign Up" class="form-control" 
        style="width:350px;
         height:50px;
          background-color:#3a4cea;
-         color:white ">  </div>  </div>
+         color:white " disabled>  </div>  </div>
   
            </div>
         
