@@ -233,7 +233,6 @@ $('.multiple-items').slick({
 
 
 <script src="/js/app.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 </body>
