@@ -18,6 +18,8 @@ use App\Http\Controllers\FlutterwaveController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Register New User
+
 Route::get('/rave/callback', [FlutterwaveController::class, 'callback'])->name('callback');
 Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
 Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
@@ -59,8 +61,7 @@ Route::get('/signin', function () {
     return view('signin.index');
 });
 
-//Register New User
-Route::post('/adduser', [AuthController::class, 'add']);
+
 
 
 
@@ -74,6 +75,8 @@ Route::post('/adduser', [AuthController::class, 'add']);
 
 //Login User
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/adduser', [AuthController::class, 'add']);
+Route::get('/signout', [AuthController::class, 'logout']);
 
 
 //Process Flutterwave Payment

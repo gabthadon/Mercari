@@ -73,10 +73,15 @@ if(Hash::check(request('password'), $user->password)){
   redirect('signin', ['msg'=>"Login Failed"]);
 }
 
-      
-      
-
    
 }
+
+
+public function logout(){
+  setcookie("email", "", time() - 3600);
+  setcookie("_token", "", time() - 3600);
+  return redirect('/');
+}
+
 
 }

@@ -29,9 +29,16 @@
     </div>
 
     <div class="right_header_content" id="banner_item2">
-<div class="right_header_content toggle_item "> <a href="/signup">Sign up </a></div>
-<div class="right_header_content toggle_item"><a href="/signin"> Log in</a> </div>
-<div class="right_header_content toggle_item"> |</div> 
+
+    <div class='right_header_content toggle_item'><a href='/signin'> {{$signin ?? ""}}</a> </div>
+   <div class='right_header_content toggle_item '> <a href='/signup'> {{$signup ?? ""}} </a></div>
+
+
+  
+<div class='right_header_content toggle_item'> |</div> 
+<div class='right_header_content toggle_item '> <a href='/signout'> {{$signout ?? ""}} </a></div>
+
+
 <div class="right_header_content toggle_menu" id="app2"> <img  @click="showCart" data-bs-toggle="modal" data-bs-target="#cartModal" src="/images/icons/icons8-cart-64.png" id="cart"> {{\Cart::getTotalQuantity()}} 
 @include("layout/cart")
 </div>
