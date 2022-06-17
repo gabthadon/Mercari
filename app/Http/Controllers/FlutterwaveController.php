@@ -29,7 +29,7 @@ class FlutterwaveController extends Controller
 
 //This generates a payment reference
 $reference = Flutterwave::generateReference();
-dd($customer[0]->email);
+
   // Enter the details of the payment
   $data = [
     'payment_options' => 'card',
@@ -103,7 +103,7 @@ return redirect($payment['data']['link']);
     
             ]);
     
-    
+    return redirect("/");
 
        
         }
