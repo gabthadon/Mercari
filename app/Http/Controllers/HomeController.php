@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
- 
+
 
       $post =  Post::inRandomOrder()  
      ->limit(10)
@@ -23,9 +23,17 @@ class HomeController extends Controller
 
       $top = Post::where('category_id', 52)->get();
 
-      return view('index', ['post'=>$post, 'top'=>$top]);
-    }
+      if(isset($_COOKIE['email'])){
+       
 
+        $logout= "Logout";
+        return view('index', ['post'=>$post, 'top'=>$top, 'signout'=>$logout]);
+    }else{
+    $login = "Signin";
+    $logout = "Signout";
+      return view('index', ['post'=>$post, 'top'=>$top, 'signin'=>$login, 'signout'=>$logout]);
+    }
+}
     /**
      * Show the form for creating a new resource.
      *
