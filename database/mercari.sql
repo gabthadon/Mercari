@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2022 at 11:31 AM
+-- Generation Time: Jun 17, 2022 at 08:04 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -91,7 +91,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `email`, `email_verified_at`, `username`, `password`, `phone`, `extra_phone`, `address`, `remember_token`, `_token`, `created_at`, `updated_at`, `fb_id`) VALUES
 (6, 'dzangalist1@gmail.com', NULL, 'gabito', '$2y$10$1V2wxai1MsvkBIVSLlqS0.I0GoMjKBLfEZPRAd3SDYmhT6uM7a7ly', NULL, NULL, NULL, NULL, '', '2022-05-18 23:32:34', '2022-05-18 23:32:34', NULL),
-(24, 'info@gadgedup.com', NULL, 'gabthadon', '$2y$10$oEXRxlbYyLxthzbO3i/ZXe.u9cgmwsMj6X1IkA.18q3aItMUWP/JK', NULL, NULL, NULL, NULL, 'QltheCeFK4CBgBXd7w79vocBCU6G2FDqurUx8f9O', '2022-06-09 00:16:39', '2022-06-09 00:16:39', NULL);
+(24, 'info@gadgedup.com', NULL, 'gabthadon', '$2y$10$oEXRxlbYyLxthzbO3i/ZXe.u9cgmwsMj6X1IkA.18q3aItMUWP/JK', NULL, NULL, NULL, NULL, 'QltheCeFK4CBgBXd7w79vocBCU6G2FDqurUx8f9O', '2022-06-09 00:16:39', '2022-06-09 00:16:39', NULL),
+(25, 'dzangalist@gmail.com', NULL, 'dzangalist', '$2y$10$xsNBFJxJmlfdEN5frIQFsumjhw3mItgFFZ8iGvjzW1.sR0gMlmksK', NULL, NULL, NULL, NULL, '9MxYH0ADxqznlZ8A2t0UQClFOOC96YZPtTCpr9ur', '2022-06-17 14:04:10', '2022-06-17 14:04:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -163,24 +164,6 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (41, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 13),
 (42, 5, 'seo_title', 'text', 'SEO Title', 0, 1, 1, 1, 1, 1, '{}', 14),
 (43, 5, 'featured', 'checkbox', 'Featured', 1, 1, 1, 1, 1, 1, '{}', 15),
-(44, 6, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(45, 6, 'author_id', 'text', 'Author', 1, 0, 0, 0, 0, 0, NULL, 2),
-(46, 6, 'title', 'text', 'Title', 1, 1, 1, 1, 1, 1, NULL, 3),
-(47, 6, 'excerpt', 'text_area', 'Excerpt', 1, 0, 1, 1, 1, 1, NULL, 4),
-(48, 6, 'body', 'rich_text_box', 'Body', 1, 0, 1, 1, 1, 1, NULL, 5),
-(49, 6, 'slug', 'text', 'Slug', 1, 0, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"title\"},\"validation\":{\"rule\":\"unique:pages,slug\"}}', 6),
-(50, 6, 'meta_description', 'text', 'Meta Description', 1, 0, 1, 1, 1, 1, NULL, 7),
-(51, 6, 'meta_keywords', 'text', 'Meta Keywords', 1, 0, 1, 1, 1, 1, NULL, 8),
-(52, 6, 'status', 'select_dropdown', 'Status', 1, 1, 1, 1, 1, 1, '{\"default\":\"INACTIVE\",\"options\":{\"INACTIVE\":\"INACTIVE\",\"ACTIVE\":\"ACTIVE\"}}', 9),
-(53, 6, 'created_at', 'timestamp', 'Created At', 1, 1, 1, 0, 0, 0, NULL, 10),
-(54, 6, 'updated_at', 'timestamp', 'Updated At', 1, 0, 0, 0, 0, 0, NULL, 11),
-(55, 6, 'image', 'image', 'Page Image', 0, 1, 1, 1, 1, 1, NULL, 12),
-(74, 12, 'id', 'number', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
-(75, 12, 'state', 'text', 'State', 0, 1, 1, 1, 1, 1, '{}', 2),
-(76, 12, 'cost', 'number', 'Cost', 0, 1, 1, 1, 1, 1, '{}', 3),
-(77, 12, 'ext_delivery', 'number', 'Ext Delivery', 0, 1, 1, 1, 1, 1, '{}', 4),
-(78, 12, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
-(79, 12, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6),
 (91, 5, 'price', 'number', 'Price', 0, 1, 1, 1, 1, 1, '{}', 16),
 (93, 5, 'images', 'multiple_images', 'Images', 0, 0, 0, 0, 0, 0, '{}', 17);
 
@@ -217,9 +200,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2022-05-17 14:46:28', '2022-05-17 14:46:28'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2022-05-17 14:46:28', '2022-05-17 14:46:28'),
 (4, 'categories', 'categories', 'Category', 'Categories', 'voyager-categories', 'TCG\\Voyager\\Models\\Category', NULL, '', '', 1, 0, NULL, '2022-05-17 14:46:40', '2022-05-17 14:46:40'),
-(5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2022-05-17 14:46:42', '2022-05-28 01:10:43'),
-(6, 'pages', 'pages', 'Page', 'Pages', 'voyager-file-text', 'TCG\\Voyager\\Models\\Page', NULL, '', '', 1, 0, NULL, '2022-05-17 14:46:44', '2022-05-17 14:46:44'),
-(12, 'deliveries', 'deliveries', 'Delivery', 'Deliveries', NULL, 'App\\Models\\Delivery', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}', '2022-05-22 18:21:10', '2022-05-22 18:21:10');
+(5, 'posts', 'posts', 'Post', 'Posts', 'voyager-news', 'TCG\\Voyager\\Models\\Post', 'TCG\\Voyager\\Policies\\PostPolicy', NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2022-05-17 14:46:42', '2022-05-28 01:10:43');
 
 -- --------------------------------------------------------
 
@@ -353,9 +334,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2022-05-17 14:46:30', '2022-05-22 11:32:08', 'voyager.bread.index', NULL),
 (10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 10, '2022-05-17 14:46:30', '2022-05-28 00:04:15', 'voyager.settings.index', NULL),
 (11, 1, 'Categories', '', '_self', 'voyager-categories', NULL, NULL, 8, '2022-05-17 14:46:41', '2022-05-28 00:04:15', 'voyager.categories.index', NULL),
-(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2022-05-17 14:46:43', '2022-05-28 00:04:14', 'voyager.posts.index', NULL),
-(13, 1, 'Pages', '', '_self', 'voyager-file-text', NULL, NULL, 7, '2022-05-17 14:46:45', '2022-05-28 00:04:14', 'voyager.pages.index', NULL),
-(17, 1, 'Delivery', '', '_self', 'voyager-double-up', '#000000', NULL, 3, '2022-05-22 18:21:11', '2022-05-22 18:29:37', 'voyager.deliveries.index', 'null');
+(12, 1, 'Posts', '', '_self', 'voyager-news', NULL, NULL, 6, '2022-05-17 14:46:43', '2022-05-28 00:04:14', 'voyager.posts.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -411,7 +390,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (36, '2016_06_01_000003_create_oauth_refresh_tokens_table', 6),
 (37, '2016_06_01_000004_create_oauth_clients_table', 6),
 (38, '2016_06_01_000005_create_oauth_personal_access_clients_table', 6),
-(39, '2022_06_10_220326_create_orders_table', 7);
+(39, '2022_06_10_220326_create_orders_table', 7),
+(40, '2022_06_15_163459_create_ratings_table', 8);
 
 -- --------------------------------------------------------
 
@@ -421,44 +401,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ref` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ref` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `extra_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `pages`
+-- Dumping data for table `orders`
 --
 
-CREATE TABLE `pages` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `author_id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `excerpt` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_keywords` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('ACTIVE','INACTIVE') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'INACTIVE',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `pages`
---
-
-INSERT INTO `pages` (`id`, `author_id`, `title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Hello World', 'Hang the jib grog grog blossom grapple dance the hempen jig gangway pressgang bilge rat to go on account lugger. Nelsons folly gabion line draught scallywag fire ship gaff fluke fathom case shot. Sea Legs bilge rat sloop matey gabion long clothes run a shot across the bow Gold Road cog league.', '<p>Hello World. Scallywag grog swab Cat o\'nine tails scuttle rigging hardtack cable nipper Yellow Jack. Handsomely spirits knave lad killick landlubber or just lubber deadlights chantey pinnace crack Jennys tea cup. Provost long clothes black spot Yellow Jack bilged on her anchor league lateen sail case shot lee tackle.</p>\n<p>Ballast spirits fluke topmast me quarterdeck schooner landlubber or just lubber gabion belaying pin. Pinnace stern galleon starboard warp carouser to go on account dance the hempen jig jolly boat measured fer yer chains. Man-of-war fire in the hole nipperkin handsomely doubloon barkadeer Brethren of the Coast gibbet driver squiffy.</p>', 'pages/page1.jpg', 'hello-world', 'Yar Meta Description', 'Keyword1, Keyword2', 'ACTIVE', '2022-05-17 14:46:45', '2022-05-17 14:46:45');
+INSERT INTO `orders` (`id`, `ref`, `customer_id`, `product`, `status`, `created_at`, `updated_at`) VALUES
+(1, '3494869', '25', '{\"status\":\"success\",\"message\":\"Transaction fetched successfully\",\"data\":{\"id\":3494869,\"tx_ref\":\"flw_165548815062acbe964a784\",\"flw_ref\":\"FLW-MOCK-42d46559ca173f0c52c8debdf2a630b1\",\"device_fingerprint\":\"061be2ecf516517375e36c793e28b792\",\"amount\":23000,\"currency\":\"NGN\",\"charged_amount\":23000,\"app_fee\":322,\"merchant_fee\":0,\"processor_response\":\"successful\",\"auth_model\":\"PIN\",\"ip\":\"52.209.154.143\",\"narration\":\"CARD Transaction \",\"status\":\"successful\",\"payment_type\":\"card\",\"created_at\":\"2022-06-17T17:57:20.000Z\",\"account_id\":1759406,\"card\":{\"first_6digits\":\"553188\",\"last_4digits\":\"2950\",\"issuer\":\" CREDIT\",\"country\":\"NIGERIA NG\",\"type\":\"MASTERCARD\",\"token\":\"flw-t1nf-821702404e05d56a8bbaa2a17ead04fa-m03k\",\"expiry\":\"09\\/32\"},\"meta\":{\"__CheckoutInitAddress\":\"https:\\/\\/ravemodal-dev.herokuapp.com\\/v3\\/hosted\\/pay\"},\"amount_settled\":22678,\"customer\":{\"id\":1662359,\"name\":\"dzangalist \",\"phone_number\":\"N\\/A\",\"email\":\"dzangalist@gmail.com\",\"created_at\":\"2022-06-17T17:57:20.000Z\"}}}', '1', '2022-06-17 16:59:28', '2022-06-17 16:59:28');
 
 -- --------------------------------------------------------
 
@@ -525,17 +481,7 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (32, 'read_posts', 'posts', '2022-05-17 14:46:43', '2022-05-17 14:46:43'),
 (33, 'edit_posts', 'posts', '2022-05-17 14:46:43', '2022-05-17 14:46:43'),
 (34, 'add_posts', 'posts', '2022-05-17 14:46:43', '2022-05-17 14:46:43'),
-(35, 'delete_posts', 'posts', '2022-05-17 14:46:43', '2022-05-17 14:46:43'),
-(36, 'browse_pages', 'pages', '2022-05-17 14:46:45', '2022-05-17 14:46:45'),
-(37, 'read_pages', 'pages', '2022-05-17 14:46:45', '2022-05-17 14:46:45'),
-(38, 'edit_pages', 'pages', '2022-05-17 14:46:45', '2022-05-17 14:46:45'),
-(39, 'add_pages', 'pages', '2022-05-17 14:46:45', '2022-05-17 14:46:45'),
-(40, 'delete_pages', 'pages', '2022-05-17 14:46:45', '2022-05-17 14:46:45'),
-(56, 'browse_deliveries', 'deliveries', '2022-05-22 18:21:10', '2022-05-22 18:21:10'),
-(57, 'read_deliveries', 'deliveries', '2022-05-22 18:21:11', '2022-05-22 18:21:11'),
-(58, 'edit_deliveries', 'deliveries', '2022-05-22 18:21:11', '2022-05-22 18:21:11'),
-(59, 'add_deliveries', 'deliveries', '2022-05-22 18:21:11', '2022-05-22 18:21:11'),
-(60, 'delete_deliveries', 'deliveries', '2022-05-22 18:21:11', '2022-05-22 18:21:11');
+(35, 'delete_posts', 'posts', '2022-05-17 14:46:43', '2022-05-17 14:46:43');
 
 -- --------------------------------------------------------
 
@@ -587,17 +533,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (32, 1),
 (33, 1),
 (34, 1),
-(35, 1),
-(36, 1),
-(37, 1),
-(38, 1),
-(39, 1),
-(40, 1),
-(56, 1),
-(57, 1),
-(58, 1),
-(59, 1),
-(60, 1);
+(35, 1);
 
 -- --------------------------------------------------------
 
@@ -652,6 +588,22 @@ INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `ex
 (24, 2, 52, 'Zanzea Women Casual Rufles Sleeve See Through Tops', NULL, NULL, '<p style=\"box-sizing: border-box; padding: 8px 0px; margin: 0px; color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\"><strong style=\"box-sizing: border-box;\">About SMARTEST:</strong></p>\r\n<p style=\"box-sizing: border-box; padding: 8px 0px; margin: 0px; color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\"><strong style=\"box-sizing: border-box;\">Believe in youself , Believe in partners! SMARTEST!</strong></p>\r\n<p style=\"box-sizing: border-box; padding: 8px 0px; margin: 0px; color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\"><strong style=\"box-sizing: border-box;\">The exclusive promotion period is for the last five months of 2019. On the 8th,18th and 28th of each month are the only sales days for this month\'s flagship products or the user reviews the highest rated products.</strong></p>\r\n<p style=\"box-sizing: border-box; padding: 8px 0px; margin: 0px; color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Please not only reference the Size Guide provided by JUMIA but also have to reference ours, which shows in the product detail pictures.</p>', 'posts/May2022/GJQIM3htyoU1Nw8F9P1s.jpg', 'zanzea-women-casual-rufles-sleeve-see-through-tops', NULL, NULL, 'PUBLISHED', 1, '2022-05-28 13:38:27', '2022-05-28 13:49:41', 1700),
 (25, 2, 52, 'Emfed Lace Trim Cold Shoulder Royal Blue Long Sleeve Top', NULL, NULL, '<p><span style=\"color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Edge and bold cold shoulder design complete with delicate lace accents. This long sleeve top new season must be the next fashion trend icon for women worldwide. It has round neckline, beautiful floral lace trim the cold shoulder and cutout around elbows, cuff banded at the end of long sleeves and hemline. Made of soft stretchy fabric, suitable for most ladies!</span></p>', 'posts/May2022/KA9y0CAZVWvowIUfJFAN.jpg', 'emfed-lace-trim-cold-shoulder-royal-blue-long-sleeve-top', NULL, NULL, 'PUBLISHED', 0, '2022-05-28 13:40:41', '2022-05-28 13:49:25', 2999),
 (26, 2, 52, 'SHARE THIS PRODUCT   Emfed Burgundy Long Sleeve Colorblock Diamond Top', NULL, NULL, '<p><span style=\"color: #282828; font-family: Roboto, -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Casual style with diamonds designLoose fit to elongate a Slim figureMade from quality fabric, it comfortable to wearPerfect to pair with skinny jeans to create a street style</span></p>', 'posts/May2022/AxSLWr969DX3mXKLBkh8.jpg', 'share-this-product-emfed-burgundy-long-sleeve-colorblock-diamond-top', NULL, NULL, 'PUBLISHED', 1, '2022-05-28 13:43:48', '2022-05-28 13:49:06', 3500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -888,13 +840,6 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pages`
---
-ALTER TABLE `pages`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `pages_slug_unique` (`slug`);
-
---
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -921,6 +866,12 @@ ALTER TABLE `permission_role`
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
+
+--
+-- Indexes for table `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -981,7 +932,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `data_rows`
@@ -1023,19 +974,13 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pages`
---
-ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -1048,6 +993,12 @@ ALTER TABLE `permissions`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
