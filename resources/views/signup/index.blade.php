@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
   <link rel="shortcut icon" href="/images/logos/gadgeduplogo-2.jpg" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -76,24 +78,28 @@
 
 
   
-     <div class="signup_text2" id="terms"> 
-       <input  type="checkbox" @change="terms" v-model="checked" style="width:50px; height:30px;">  I agree to the Mercari Terms of Service and Privacy Policy
-       <label for="checkbox"> @{{status}} </label>
-    
+     <div class="signup_text2" > 
+     
+       <input id="agree" type="checkbox" @change="termevent" style="width:50px; height:30px;">  I agree to the Mercari Terms of Service and Privacy Policy
+       <label for="checkbox">  </label>
+</div>
+  
        
   
        <div id="btn_signup"><input id="termsandcon"  type="submit"   value="Sign Up" class="form-control" 
        style="width:350px;
         height:50px;
          background-color:#3a4cea;
-         color:white " disabled>  </div>  </div>
-  
-           </div>
+         color:white " disabled >  </div>  </div>
+       </div>
+      
+      
         
   </form>
-
+  <script src="/js/terms.js"></script>
+  <script src="/js/app.js"></script>
   </div>
  </div>
 </body>
-<script src="/js/app.js"></script>
+
 </html>
