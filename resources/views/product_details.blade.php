@@ -51,10 +51,12 @@
     <div class="prod_title">Meet the seller</div>
 <br>
     <img class="seller_image" src="/storage/{{$data->user->avatar}}" alt="" srcset=""> <span class="prod_title">{{$data->user->name}}</span>
-   <div id='star-rating'>
-   <star-rating v-model="rating"></star-rating>
-   </div>
-   <row-rating v-model='rating' :increment="0.5" text-class="custom-text"></row-rating>
+   <span id='star-rating'>
+   <star-rating v-model="rating" :star-size="30" :increment="0.01"></star-rating>
+</span>
+<span><b>44</b> Review |</span>
+<span><b>100</b> Listed |</span>
+<span><b>33 </b> Sales</span>
 </div>
 </div>
 
@@ -90,9 +92,52 @@
 
 
 
+<br><br><br><br><br>
+
+<div id="footer"> 
+  <span class="footer_text">Buy or Sell Online</span>
+
+  <div class="footer_image_box"> <img class="footer_image" src="/images/footer/footer2.jpg" alt="" srcset=""></div>
+
+</div>
 
 
+<br><br><br><br><br>
 
+<div id="footer2" class="container-fluid">
+
+  <div class="row footer2_box">
+<div class="col-sm-4">
+   <div class="footer2_title">  Shop </div> 
+  <div class="footer2_body">Category</div>
+  <div class="footer2_body">20% off</div>
+  <div class="footer2_body">Frequently sold items</div>
+</div>
+
+<div class="col-sm-4" >
+  <div class="footer2_title"> Support </div>
+<div class="footer2_body">Contus Us</div>
+<div class="footer2_body">Market Place Guidline</div>
+<div class="footer2_body">Sellers Protection</div>
+<div class="footer2_body">Buyer Protection</div>
+<div class="footer2_body">Help Center</div>
+</div>
+
+
+<div class="col-sm-4 ">
+  <div class="footer2_title">Policy Center </div>
+  <div class="footer2_body">Policy Center</div>
+  <div class="footer2_body">Term of Service</div>
+  <div class="footer2_body">Privacy</div>
+  <div class="footer2_body">Prohibited item/Conduct</div>
+  <div class="footer2_body">Sale Tax</div>
+  <div class="footer2_body">Refund and Return Policy</div>
+
+</div>
+
+</div>
+</div>
+<div class="footer3"> <span style="padding-left: 40px" class="footer3_text">COPYRIGHT © Gadgedup  - 2022</span>  <span class="footer3_text">Designed By <a href="http://gaibtech.com">Gabriel Okhai</a></span></div>
 
 <script src="/js/app.js"></script>
 
