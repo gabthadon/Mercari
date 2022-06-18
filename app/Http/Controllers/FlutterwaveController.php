@@ -29,6 +29,7 @@ class FlutterwaveController extends Controller
 
 //This generates a payment reference
 $reference = Flutterwave::generateReference();
+session(['ref'=>$reference]);
 
   // Enter the details of the payment
   $data = [
@@ -98,7 +99,7 @@ return redirect($payment['data']['link']);
 
 
             Order::create([
-                'ref'=>$transactionID,
+                'ref'=>session('ref'),
                 'customer_id'=>$customer[0]->id,
               'name'=>json_encode($item->name),
               'amount'=>json_encode($item->price),

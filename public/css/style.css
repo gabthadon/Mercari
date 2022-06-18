@@ -140,6 +140,7 @@ a{
     color: #ff3300;
 }
 
+
 .item_title a{
     color:#000000
 }
@@ -150,6 +151,11 @@ a{
     width: 400px;
     height: 40px;
 
+}
+
+thead{
+    background-color: #ff0000;
+    color: #ffffff;
 }
 
 #btn-pay:hover{
@@ -499,6 +505,7 @@ padding-left: 100px;
     border-radius: 50%;
     width: 80px;
     height: 80px;
+    margin-left: 35px;
 }
 
 
