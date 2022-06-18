@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FlutterwaveController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +83,7 @@ Route::get('/signout', [AuthController::class, 'logout']);
 //Process Flutterwave Payment
 Route::get('/process_payment', [FlutterwaveController::class, 'index']);
 
-
+Route::get('/orders', [OrderController::class, 'index']);
 
 
 

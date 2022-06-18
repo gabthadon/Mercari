@@ -13,7 +13,9 @@ class Order extends Model
     protected $fillable = [
         'ref',
         'customer_id',
-        'product',
+        'name',
+        'amount',
+        'quantity',
         'status'
     ];
 }

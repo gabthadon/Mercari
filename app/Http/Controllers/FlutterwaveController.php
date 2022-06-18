@@ -92,17 +92,21 @@ return redirect($payment['data']['link']);
             $transactionID = Flutterwave::getTransactionIDFromCallback();
             $data = Flutterwave::verifyTransaction($transactionID);
     
-    $product=json_encode($data);
-        
     
+        
+    foreach($items as $item){
+
+
             Order::create([
                 'ref'=>$transactionID,
                 'customer_id'=>$customer[0]->id,
-              'product'=>$product,
+              'name'=>json_encode($item->name),
+              'amount'=>json_encode($item->price),
+              'quantity'=>json_encode($item->quantity),
                 'status'=>'1',
     
             ]);
-    
+        }
     return redirect("/");
 
        
