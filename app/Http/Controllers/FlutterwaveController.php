@@ -101,9 +101,9 @@ return redirect($payment['data']['link']);
             Order::create([
                 'ref'=>session('ref'),
                 'customer_id'=>$customer[0]->id,
-              'name'=>json_encode($item->name),
-              'amount'=>json_encode($item->price),
-              'quantity'=>json_encode($item->quantity),
+              'name'=>$item->name,
+              'amount'=>$item->price,
+              'quantity'=>$item->quantity,
                 'status'=>'1',
     
             ]);
