@@ -25,7 +25,7 @@
       <th   scope="row">  </th>
       <td class="test1">@{{items.name}}</td>
       <td class="quantity">@{{items.quantity}}</td>
-      <td class="cart_price">₦@{{items.price }}</td>
+      <td class="cart_price">₦@{{items.price.toLocaleString('en-US')}}</td>
       <td class="x"  @click="cartRemove(items.id)" >x</td>
      
     </tr>
@@ -34,7 +34,7 @@
         <td></td>
         <td style="font-weight:bold">Total </td>
         <td></td>
-        <td style="font-weight:bold">₦@{{price}}</td>
+        <td style="font-weight:bold">₦@{{price.toLocaleString('en-US')}}</td>
     </tr>
     
   </tbody>
