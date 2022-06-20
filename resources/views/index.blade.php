@@ -35,11 +35,23 @@
 
 
   
-<div class='right_header_content toggle_item'> |</div> 
-<div class='right_header_content toggle_item '> <a href='/signout'> {{$signout ?? ""}} </a></div>
 
 
-<div class="right_header_content toggle_menu" id="app2"> <img  @click="showCart" data-bs-toggle="modal" data-bs-target="#cartModal" src="/images/icons/icons8-cart-64.png" id="cart"> {{\Cart::getTotalQuantity()}} 
+<div id="{{$logout ?? ''}}" class="right_header_content toggle_item  dropdown">
+  <a style="color:#000000" class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+ <b>Menu</b>
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" href='/signout'> Logout </a></li>
+  </ul>
+</div>
+
+
+
+<div class="right_header_content toggle_item" id="app2"> <img  @click="showCart" data-bs-toggle="modal" data-bs-target="#cartModal" src="/images/icons/icons8-cart-64.png" id="cart"> {{\Cart::getTotalQuantity()}} 
 @include("layout/cart")
 </div>
 <div class="right_header_content toggle_menu"> <img src="/images/icons/icons8-user-30.png" id="user"> </div>

@@ -30,8 +30,9 @@ class HomeController extends Controller
         return view('index', ['post'=>$post, 'top'=>$top, 'signout'=>$logout]);
     }else{
     $login = "Signin";
-    $logout = "Signout";
-      return view('index', ['post'=>$post, 'top'=>$top, 'signin'=>$login, 'signout'=>$logout]);
+    $signup = "Signup";
+    $btn_dropdown="logout";
+      return view('index', ['post'=>$post, 'top'=>$top, 'signin'=>$login, 'signup'=>$signup , 'logout'=>$btn_dropdown]);
     }
 }
     /**

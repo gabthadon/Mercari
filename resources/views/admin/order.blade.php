@@ -14,9 +14,9 @@
         
    
   
+<div class="order-table"> 
 
-
-    <table class="table">
+<table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col"> Reference Number</th>
@@ -38,6 +38,10 @@
   </tbody>
 </table>
 
+
+</div>
+
+    
 
 
     </div>

@@ -226,6 +226,13 @@ thead{
     color: white;
 }
 
+.order-table{
+    max-width: 800px;
+
+    margin:auto;
+   
+}
+
 
 
 .footer2_box{
@@ -284,6 +291,14 @@ thead{
   
 }
 
+ a#dropdownMenuLink.btn.dropdown-toggle{
+    background-color:#ffffff
+}
+
+#logout{
+    visibility: hidden;
+}
+
 .slide_image{
     margin-left: auto;
     margin-right: auto;
@@ -324,7 +339,6 @@ thead{
     border-radius: 15px;
     color: var(--color-white);
     letter-spacing: -0.16px;
-  border-color: white;
   color: white;
 }
 

@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
+Route::get('/order/tracking', [OrderController::class, 'show']);
+
 //Get details of a product
 Route::get('/{id}/{slug}', [HomeController::class, 'show']);
 
@@ -69,11 +71,6 @@ Route::get('/signin', function () {
 
 
 
-
-
-
-
-
 //Login User
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/adduser', [AuthController::class, 'add']);
@@ -83,7 +80,9 @@ Route::get('/signout', [AuthController::class, 'logout']);
 //Process Flutterwave Payment
 Route::get('/process_payment', [FlutterwaveController::class, 'index']);
 
+
 Route::get('/orders', [OrderController::class, 'index']);
+
 
 
 
