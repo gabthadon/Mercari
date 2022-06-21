@@ -5399,6 +5399,8 @@ this.price=res.data[1];
   }
 });
 
+
+
 Vue.component('star-rating', VueStarRating.default);
 // Star Rating
 new Vue({
@@ -5431,10 +5433,15 @@ axios.post('/review', {comment:comment, rating:rating, user_id:user_id, product_
 
 
   
-})
+});
 
 
-
+new Vue({
+  el:'#admin-rating',
+  data:{
+    rating:0
+  }
+});
 
 
 

@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<b>  Review </b>
+<b class="item1">  Review </b>
 </div>
 
 <!-- Modal -->
