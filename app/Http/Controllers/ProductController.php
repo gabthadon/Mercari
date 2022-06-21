@@ -42,10 +42,30 @@ Rating::create([
     }
 
 
-    public function create(){
+    public function show(){
 
-        return view('products.add');
+     $five_star = Rating::where(['rating'=>'5'])->get();
+     $five_star = count($five_star ) * 5;
+
+     $four_star = Rating::where(['rating'=>'4'])->get();
+     $four_star = count($four_star) * 4;
+
+     $three_star = Rating::where(['rating'=>'3'])->get();
+     $three_star = count($three_star) * 3;
        
+     $two_star = Rating::where(['rating'=>'2'])->get();
+     $two_star = count($two_star) * 2;
+
+     $one_star = Rating::where(['rating'=>'1'])->get();
+     $one_star = count($one_star) * 1;
+
+     $total=Rating::all();
+     $total=count($total);
+
+     
+     $rating = ($five_star + $four_star + $three_star + $two_star +  $one_star)/$total;
+
+     return  $rating;
        
     }
 

@@ -5440,9 +5440,26 @@ new Vue({
   el:'#admin-rating',
   data:{
     rating:0
-  }
-});
+  },
 
+ 
+    mounted(){
+
+      axios.get('/admin_rating').then(res=>{
+        this.rating=res.data;
+        console.log(res.data);
+      }).catch(err=>{
+        console.log(err);
+      });
+
+
+    },
+ 
+
+
+
+  
+});
 
 
 /***/ }),

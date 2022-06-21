@@ -87,7 +87,7 @@ Route::post('/review', [ProductController::class, 'add_review']);
 
 
 
-
+Route::get('/admin_rating', [ProductController::class, 'show']);
 
 
 

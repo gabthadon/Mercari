@@ -59,7 +59,7 @@
 <span><b>33 </b> Sales</span> 
 
 <span id='admin-rating'>
-   <star-rating v-model="rating" :star-size="30" ></star-rating>
+   <star-rating  v-model="rating" v-bind:increment="0.01" :read-only="true" :star-size="30" ></star-rating>
 </span>
 
 <br>
