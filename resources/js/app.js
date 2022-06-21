@@ -33,3 +33,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+const admin_rating = new Vue({
+    el: '#dmin-rating',
+});
+
+

@@ -51,12 +51,19 @@
     <div class="prod_title">Meet the seller</div>
 <br>
     <img class="seller_image" src="/storage/{{$data->user->avatar}}" alt="" srcset=""> <span class="prod_title">{{$data->user->name}}</span>
-   <span id='star-rating'>
-   <star-rating v-model="rating" :star-size="30" :increment="0.01"></star-rating>
-</span>
+    
+   
+
 <span><b>44</b> Review |</span>
 <span><b>100</b> Listed |</span>
-<span><b>33 </b> Sales</span>
+<span><b>33 </b> Sales</span> 
+
+<span id='admin-rating'>
+   <star-rating v-model="rating" :star-size="30" ></star-rating>
+</span>
+
+<br>
+<span>@include("layout/rating")</span>
 </div>
 </div>
 

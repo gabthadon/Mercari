@@ -83,6 +83,8 @@ Route::get('/process_payment', [FlutterwaveController::class, 'index']);
 
 Route::get('/orders', [OrderController::class, 'index']);
 
+Route::post('/review', [ProductController::class, 'add_review']);
+
 
 
 

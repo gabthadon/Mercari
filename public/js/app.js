@@ -5405,10 +5405,32 @@ new Vue({
   el:'#star-rating',
   data:{
     rating:0
+  },
+
+  methods:{
+    addReview:function(event){
+//alert('The rating is  ' + this.rating);
+var user_id=document.getElementById('user-id').value;
+var comment=document.getElementById('review-comment').value;  
+var product_id=document.getElementById('product-id').value; 
+var rating = this.rating;
+
+
+axios.post('/review', {comment:comment, rating:rating, user_id:user_id, product_id:product_id}).then(res=>{
+ console.log(res.data);
+
+  
+  console.log()
+}).catch(err=>{
+  console.log(err);
+});
+
+    }
   }
+
+
+  
 })
-
-
 
 
 
