@@ -18,17 +18,13 @@ class ProductController extends Controller
     }
 
     public function add_review(){
-
+//Check If user is loged in
         if(empty($_COOKIE['email']) ||  empty($_COOKIE['_token'])){
             return redirect('/signin');
         }
 
 
  $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
-
-
- echo("user id   " . request('user_id'));
-
 
 
 

@@ -23,14 +23,17 @@
       <div id='star-rating'>
    <star-rating v-model="rating"   :star-size="30" ></star-rating>
   
-   <button @click.prevent="addReview">Test </button>
-</div>
+ 
 
-</form>
-      </div>
+
+
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button id="btnrate" type="button" @click="new_review" class="btn btn-primary">Save changes</button>
+        <button id="btnrate" type="button" @click.prevent="addReview" class="btn btn-primary">Save changes</button>
+      </div>
+      </div>
+        </form>
       </div>
     </div>
   </div>

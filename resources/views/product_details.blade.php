@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="/slick/slick.css">
     <link rel="stylesheet" href="/slick/slick-theme.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">

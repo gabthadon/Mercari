@@ -5417,9 +5417,10 @@ var rating = this.rating;
 
 
 axios.post('/review', {comment:comment, rating:rating, user_id:user_id, product_id:product_id}).then(res=>{
- console.log(res.data);
+ console.log();
 
-  
+ swal(res.data, "", "success");
+
   console.log()
 }).catch(err=>{
   console.log(err);
