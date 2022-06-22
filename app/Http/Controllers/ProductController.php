@@ -42,7 +42,7 @@ Rating::create([
     }
 
 
-    public function show(){
+    public function show($id){
 
      $five_star = Rating::where(['rating'=>'5'])->get();
      $five_star = count($five_star ) * 5;
@@ -59,7 +59,7 @@ Rating::create([
      $one_star = Rating::where(['rating'=>'1'])->get();
      $one_star = count($one_star) * 1;
 
-     $total=Rating::all();
+     $total=Rating::where(['user_id'=>$id])->get();
      $total=count($total);
 
      

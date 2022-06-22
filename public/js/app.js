@@ -5444,8 +5444,9 @@ new Vue({
 
  
     mounted(){
-
-      axios.get('/admin_rating').then(res=>{
+      var id=document.getElementById('user-id').value;
+     
+      axios.get('/admin_rating/'+id).then(res=>{
         this.rating=res.data;
         console.log(res.data);
       }).catch(err=>{

@@ -77,7 +77,7 @@
             @csrf
          <input type="hidden" ref="myid" ref="myid" value="{{$data->id}}"> 
        
-         <button  class="btn btn_cart"   >Add to Cart</button></div>
+         <button  class="btn btn_cart">Add to Cart</button></div>
 
 
          <!--Payment Form    -->
