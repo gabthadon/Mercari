@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2022 at 08:04 PM
+-- Generation Time: Jun 22, 2022 at 05:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -401,9 +401,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ref` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ref` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -413,8 +415,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `ref`, `customer_id`, `product`, `status`, `created_at`, `updated_at`) VALUES
-(1, '3494869', '25', '{\"status\":\"success\",\"message\":\"Transaction fetched successfully\",\"data\":{\"id\":3494869,\"tx_ref\":\"flw_165548815062acbe964a784\",\"flw_ref\":\"FLW-MOCK-42d46559ca173f0c52c8debdf2a630b1\",\"device_fingerprint\":\"061be2ecf516517375e36c793e28b792\",\"amount\":23000,\"currency\":\"NGN\",\"charged_amount\":23000,\"app_fee\":322,\"merchant_fee\":0,\"processor_response\":\"successful\",\"auth_model\":\"PIN\",\"ip\":\"52.209.154.143\",\"narration\":\"CARD Transaction \",\"status\":\"successful\",\"payment_type\":\"card\",\"created_at\":\"2022-06-17T17:57:20.000Z\",\"account_id\":1759406,\"card\":{\"first_6digits\":\"553188\",\"last_4digits\":\"2950\",\"issuer\":\" CREDIT\",\"country\":\"NIGERIA NG\",\"type\":\"MASTERCARD\",\"token\":\"flw-t1nf-821702404e05d56a8bbaa2a17ead04fa-m03k\",\"expiry\":\"09\\/32\"},\"meta\":{\"__CheckoutInitAddress\":\"https:\\/\\/ravemodal-dev.herokuapp.com\\/v3\\/hosted\\/pay\"},\"amount_settled\":22678,\"customer\":{\"id\":1662359,\"name\":\"dzangalist \",\"phone_number\":\"N\\/A\",\"email\":\"dzangalist@gmail.com\",\"created_at\":\"2022-06-17T17:57:20.000Z\"}}}', '1', '2022-06-17 16:59:28', '2022-06-17 16:59:28');
+INSERT INTO `orders` (`id`, `ref`, `customer_id`, `name`, `amount`, `quantity`, `status`, `created_at`, `updated_at`) VALUES
+(2, '3496803', '25', '\"Women Puff Sleeve Boyfriend Shirt Dress Ladies Button Loose Formal OL Blouse\"', '17000', '1', '1', '2022-06-18 13:32:54', '2022-06-18 13:32:54'),
+(3, '3496803', '25', '\"Men Lace-Up Brown Corporate Shoe\"', '27000', '2', '1', '2022-06-18 13:32:54', '2022-06-18 13:32:54'),
+(4, 'flw_165557985862ae24d286ba5', '25', '\"Ladies Fashion Mid Heel Slippers\"', '11500', '1', '1', '2022-06-18 18:18:45', '2022-06-18 18:18:45'),
+(5, 'flw_165557985862ae24d286ba5', '25', '\"Quality Ladies Short-Sleeve Top-Blue\"', '3999', '2', '1', '2022-06-18 18:18:45', '2022-06-18 18:18:45');
 
 -- --------------------------------------------------------
 
@@ -599,11 +604,24 @@ CREATE TABLE `ratings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `customer_id` int(15) NOT NULL,
   `rating` int(11) NOT NULL,
-  `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `product_id`, `user_id`, `customer_id`, `rating`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 13, 2, 25, 5, 'Gabito', '2022-06-21 10:47:47', '2022-06-21 10:47:47'),
+(2, 13, 2, 25, 3, 'Another Comment', '2022-06-21 11:34:27', '2022-06-21 11:34:27'),
+(3, 13, 2, 25, 4, 'This is Gabriel\'s Comment', '2022-06-21 11:40:33', '2022-06-21 11:40:33'),
+(4, 13, 2, 25, 5, 'sddsd', '2022-06-21 11:49:56', '2022-06-21 11:49:56'),
+(5, 20, 2, 25, 1, 'Yes Its Gabi', '2022-06-21 14:38:03', '2022-06-21 14:38:03'),
+(6, 15, 2, 25, 1, 'Just The Best', '2022-06-22 02:26:08', '2022-06-22 02:26:08');
 
 -- --------------------------------------------------------
 
@@ -938,13 +956,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `deliveries`
@@ -968,7 +986,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -980,13 +998,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -998,7 +1016,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `roles`
