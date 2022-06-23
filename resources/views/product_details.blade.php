@@ -76,11 +76,7 @@
 <input  id="btn-pay" class="btn " type="submit" value="Pay Now"/>
  </a>
 
-<!--
-        <form method="GET" action="/process_payment" id="paymentForm">
-    <input  id="btn-pay" class="btn " type="submit" value="Pay Now"/>
-</form>
--->
+
 
     <br>
 

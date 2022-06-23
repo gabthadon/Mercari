@@ -20,13 +20,20 @@ class FlutterwaveController extends Controller
         ]);
 
        
+      
+
+
          if(empty($_COOKIE['email']) ||  empty($_COOKIE['_token'])){
              return redirect('/signin');
          }
 
+
+Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->update($request->all());
+
         $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
       
-        
+     
+
         //Process Payment
         $items= \Cart::getcontent();
 

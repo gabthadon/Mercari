@@ -83,7 +83,7 @@ class HomeController extends Controller
      */
     public function edit(Request $request)
     {
-      
+        
        
         $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
   $phone= $customer[0]->phone;

@@ -27,7 +27,7 @@
 
 <div class="title1">PAYMENT DETAILS</div>
 <form method="GET" action="/process_payment">
-  @csrf
+
 <div style="margin-left:auto; margin-right:auto; width:40%; padding-top:50px">
 <div class="input"><input class="form-control" placeholder="Enter Phone Number" value="{{$phone}}" type="text" name="phone" id=""> 
 @error('phone')
