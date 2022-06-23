@@ -313,14 +313,36 @@ thead{
 
 .form-control{
     border-radius: 15px;
-   height: 45px;
+
    background-repeat: no-repeat;
    background-position: center right 10px;
 
 }
 
+.input{
+    padding-bottom: 10px;
+}
+
+.btn-proceed{
+    padding-top: 10px;
+}
+
+.title1{
+    font-size: 35px;
+   
+    text-align: center;
+    padding-top: 50px;
+    color: #ff3300;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Oswald', sans-serif;
+}
+
 .btn-search{
     background-image: url(../images/icons/icons8-search-30.png) ;
+    border-radius: 15px;
+    height: 45px;
+    background-repeat: no-repeat;
+    background-position: center right 10px;
 
 }
 

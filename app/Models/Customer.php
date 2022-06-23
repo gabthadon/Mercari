@@ -25,7 +25,7 @@ class Customer extends Model implements
  
 
     protected $fillable = [
-         'email', 'username', 'password', 'fb_id', '_token'
+         'email', 'username', 'password', 'fb_id', '_token', 'phone', 'extra_phone', 'address'
     ];
 
          protected $hidden = [

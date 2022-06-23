@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<b class="item1">  Review </b>
+<b class="item1" style="margin-left:50px">  Review </b>
 </div>
 
 <!-- Modal -->
@@ -15,7 +15,7 @@
 
         <form action="" > 
           @csrf  
-      <textarea class="form-control" name="" id="review-comment" cols="80" rows="50" placeholder="Comment"></textarea>
+      <textarea class="form-control" name="" id="review-comment" rows="3" placeholder="Comment"></textarea>
        <input type="hidden" value="{{$data->id}}" id="product-id">
        <input type="hidden" value="{{$data->user->id}}" id="user-id">
       <br>

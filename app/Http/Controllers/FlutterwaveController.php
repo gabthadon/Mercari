@@ -11,7 +11,14 @@ use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
 class FlutterwaveController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+
+        $this->validate($request, [
+            'phone'=>'required',
+            'extra_phone'=>'required',
+            'address'=>'required'
+        ]);
+
        
          if(empty($_COOKIE['email']) ||  empty($_COOKIE['_token'])){
              return redirect('/signin');

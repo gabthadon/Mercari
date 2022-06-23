@@ -107,7 +107,7 @@
 
   @foreach($post as $posts)
   
-  <div >  <span class="tag1">SOLD</span> <a href="/{{$posts->id}}/{{$posts->slug}}"> <img class="slide_image" src="/storage/{{$posts->image}}" alt="" srcset=""></a>
+  <div >  <span class="tag1">SOLD</span> <a href="/{{$posts->id}}/{{$posts->slug}}"> <img class="slide_image" src="/storage/{{json_decode($posts->images[0])}}" alt="" srcset=""></a>
           
     <div class="tag2">₦{{number_format($posts->price)}}</div>
     <div class="item_title">  <a href="/{{$posts->id}}/{{$posts->slug}}">  {{substr($posts->title, 0, 20)}} </a>  @php if(strlen($posts->title) > 20) echo("....")  @endphp</div>

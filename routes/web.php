@@ -38,6 +38,8 @@ Route::get('/admin_rating/{id}', [ProductController::class, 'show']);
 Route::get('/{id}/{slug}', [HomeController::class, 'show']);
 
 
+
+
 Route::delete('/cartremove/{id}', [CartController::class, 'update']);
 
 
@@ -45,6 +47,8 @@ Route::delete('/cartremove/{id}', [CartController::class, 'update']);
 
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/details', [HomeController::class, 'update']);
 
 
 Route::post('/addtocart',  [CartController::class, 'store']);
@@ -87,7 +91,7 @@ Route::get('/process_payment', [FlutterwaveController::class, 'index']);
 Route::get('/orders', [OrderController::class, 'index']);
 
 Route::post('/review', [ProductController::class, 'add_review']);
-
+Route::get('/details', [HomeController::class, 'edit']);
 
 
 

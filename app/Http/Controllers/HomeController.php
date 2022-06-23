@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Customer;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,7 @@ class HomeController extends Controller
       ->get();
 
       $top = Post::where('category_id', 52)->get();
-
+//dd(json_decode($top[0]->images));
       if(isset($_COOKIE['email'])){
        
 
@@ -70,7 +71,7 @@ class HomeController extends Controller
         ->where('slug', $slug)
         ->get();
        
-        return view('product_details', ['datas'=>$data]);
+        return view('product_details', ['datas'=>$data, 'prod_id'=>$id, 'prod_slug'=>$slug]);
         
     }
 
@@ -80,9 +81,16 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+      
+       
+        $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
+  $phone= $customer[0]->phone;
+  $ext_phone= $customer[0]->extra_phone;
+  $address= $customer[0]->address;
+        
+       return view('payment_details', ['phone'=>$phone, 'ext_phone'=> $ext_phone, 'address'=>$address]);
     }
 
     /**
@@ -92,9 +100,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
     }
 
     /**

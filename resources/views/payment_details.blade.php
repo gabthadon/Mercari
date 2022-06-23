@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+</style>
 <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="/slick/slick.css">
@@ -22,94 +25,31 @@
 
 @include('layout/navbar')
 
-
-
-   @foreach($datas as $data)
-   <div class="row container-fluid">
-<div class="col-sm-6">
-<div class="prod_details"> <img class="detail_pix" src="/storage/{{$data->images}}" alt="" srcset=""> 
-
-    <div class="prod_layer2"> Have a similar item ? <span class="item1"> Sell yours</span>  
-    
-        <span > <button class="item1_btn">like this item</button></span>
-
-    </div>
-
-    <div class="prod_title">Meet the seller</div>
-<br>
-    <img class="seller_image" src="/storage/{{$data->user->avatar}}" alt="" srcset=""> <span class="prod_title">{{$data->user->name}}</span>
-    
-   
-
-<span><b>44</b> Review |</span>
-<span><b>100</b> Listed |</span>
-<span><b>33 </b> Sales</span> 
-
-<span id='admin-rating'>
-   <star-rating  v-model="rating" v-bind:increment="0.01" :read-only="true" :star-size="30" ></star-rating>
-</span>
-
-<br>
-<span>@include("layout/rating")</span>
-</div>
+<div class="title1">PAYMENT DETAILS</div>
+<form method="GET" action="/process_payment">
+  @csrf
+<div style="margin-left:auto; margin-right:auto; width:40%; padding-top:50px">
+<div class="input"><input class="form-control" placeholder="Enter Phone Number" value="{{$phone}}" type="text" name="phone" id=""> 
+@error('phone')
+<span class='alert'>{{$message}}</span><br>
+@enderror
 </div>
 
-<div class="col-sm-6">
-    <div class="prod_title">{{$data->title}} </div>
+<div class="input"><input class="form-control" placeholder="Enter Other Phone Number" value="{{$ext_phone}}"  type="text" name="extra_phone" id=""> 
+@error('extra_phone')
+<span class='alert'>{{$message}}</span><br>
+@enderror</div>
 
-    <div class="price">₦{{number_format($data->price)}}</div>
+<div class=""input>
+<textarea class="form-control" placeholder="Enter Address"  name="address" id=""  rows="5">{{$address}}</textarea> 
+@error('address')
+<span class='alert'>{{$message}}</span><br>
+@enderror
+</div>
 
-    <div class="btn_cart_container" id="app">
-        <form @submit.prevent="addToCart" method="post">
-            @csrf
-         <input type="hidden" ref="myid" ref="myid" value="{{$data->id}}"> 
-       
-         <button  class="btn btn_cart">Add to Cart</button></div>
-
-
-         <!--Payment Form    -->
-        </form>
-
-<br>
-
-<a href="/details">
-<input  id="btn-pay" class="btn " type="submit" value="Pay Now"/>
- </a>
-
-<!--
-        <form method="GET" action="/process_payment" id="paymentForm">
-    <input  id="btn-pay" class="btn " type="submit" value="Pay Now"/>
+<div class="btn-proceed"><input  id="btn-pay" class="btn " style="width:100px" type="submit" value="Proceed"/></div>
+</div>
 </form>
--->
-
-    <br>
-
-    <div class="prod_title" >  Overview   </div> 
-
-    <span>Condition <span style="padding-left:15px">{{$data->condition}}  </span></span> <br>
-    <span>Category <span style="padding-left:15px">{{$data->category->name}} </span></span> <br><br>
-
-    <div class="prod_title" >  Details   </div> 
-
-    <span>Size <span style="padding-left:15px">{{$data->size}}</span></span> <br>
-    <span>Posted <span style="padding-left:15px">06/22/22 </span></span> <br><br>
-
-    <div class="prod_title" >  Description  </div> 
-     
-    <div>
-     @php
-echo($data->body)
-     @endphp
-    </div>
-</div>
-   </div>
-
-
-   
-
-@endforeach
-
-
 
 <br><br><br><br><br>
 
