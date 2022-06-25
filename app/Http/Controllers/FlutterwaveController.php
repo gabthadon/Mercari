@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Tracking;
 
 use KingFlamez\Rave\Facades\Rave as Flutterwave;
 
@@ -114,6 +115,7 @@ return redirect($payment['data']['link']);
 
             Order::create([
                 'ref'=>session('ref'),
+                'trans_id'=>'GTK'.$transactionID,
                 'customer_id'=>$customer[0]->id,
               'name'=>$item->name,
               'amount'=>$item->price,
@@ -122,6 +124,14 @@ return redirect($payment['data']['link']);
     
             ]);
         }
+
+        Tracking::create([
+            'order_id'=>'GTK'.$transactionID,
+            'status'=>1,
+            'details'=>'Payment Accepted',
+
+        ]);
+
     return redirect("/");
 
        

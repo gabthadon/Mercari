@@ -16,6 +16,9 @@ class Order extends Model
         'name',
         'amount',
         'quantity',
-        'status'
+        'status',
+        'trans_id'
     ];
+
+    
 }

@@ -17,7 +17,6 @@ class HomeController extends Controller
     {
 
 
-
       $post =  Post::inRandomOrder()  
      ->limit(10)
       ->get();

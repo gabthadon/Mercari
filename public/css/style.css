@@ -319,6 +319,11 @@ thead{
 
 }
 
+#btn-print{
+    display: inline;
+    align-items: right;
+}
+
 .input{
     padding-bottom: 10px;
 }
@@ -388,6 +393,7 @@ width: 100%;
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
+margin-top: 80px;
 }
 
 .footer_image{

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Tracking;
 
 class OrderController extends Controller
 {
@@ -34,7 +35,7 @@ return view('admin.order', ['items'=>$order]);
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -54,10 +55,12 @@ return view('admin.order', ['items'=>$order]);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($order_id)
     {
-        //Track Orders
-        return view('tracking');
+      $track= Tracking::where(['order_id'=>$order_id])->get();
+
+      return view('tracking.tracking', ['track'=>$track]);
+   
     }
 
     /**

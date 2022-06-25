@@ -30,7 +30,15 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
-Route::get('/order/tracking', [OrderController::class, 'show']);
+
+Route::get('/track/{tracking_id}', [OrderController::class, 'show']);
+
+Route::get('/order/tracking', function () {
+    return view('tracking.index');
+});
+
+
+
 
 Route::get('/admin_rating/{id}', [ProductController::class, 'show']);
 
@@ -48,7 +56,7 @@ Route::delete('/cartremove/{id}', [CartController::class, 'update']);
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/details', [HomeController::class, 'update']);
+
 
 
 Route::post('/addtocart',  [CartController::class, 'store']);
