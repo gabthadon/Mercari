@@ -5323,7 +5323,22 @@ Vue.component('example-component', (__webpack_require__(/*! ./components/Example
  */
 
 
+ var searcharea = new Vue({
+  el:"#searcharea",
 
+  data:{
+    query:"",
+  },
+
+  methods:{
+    btn_search:function(event){
+
+window.location.href="/find/"+this.query;
+
+    }
+  }
+ 
+});
 
 
 
@@ -5456,10 +5471,7 @@ new Vue({
 
     },
  
-
-
-
-  
+ 
 });
 
 

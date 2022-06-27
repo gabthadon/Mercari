@@ -21,13 +21,17 @@ class HomeController extends Controller
      ->limit(10)
       ->get();
 
+      $image=json_decode($post[0]->images) ;
+
+     
+
       $top = Post::where('category_id', 52)->get();
 //dd(json_decode($top[0]->images));
       if(isset($_COOKIE['email'])){
        
 
         $logout= "Logout";
-        return view('index', ['post'=>$post, 'top'=>$top, 'signout'=>$logout]);
+        return view('index', ['post'=>$post, 'top'=>$top, 'signout'=>$logout, 'images'=>$image]);
     }else{
     $login = "Signin";
     $signup = "Signup";
@@ -69,8 +73,14 @@ class HomeController extends Controller
         $data= Post::where('id', $id)
         ->where('slug', $slug)
         ->get();
+
+      $image= $data[0]->images;
+
+      $image =json_decode($image);
+
+     
        
-        return view('product_details', ['datas'=>$data, 'prod_id'=>$id, 'prod_slug'=>$slug]);
+        return view('product_details', ['post'=>$data, 'prod_id'=>$id, 'prod_slug'=>$slug, 'images'=>$image]);
         
     }
 
@@ -82,7 +92,15 @@ class HomeController extends Controller
      */
     public function edit(Request $request)
     {
+        //Check If user is loged in
+        if(empty($_COOKIE['email']) ||  empty($_COOKIE['_token'])){
+            return redirect('/signin');
+        }
+
         
+      else if( \Cart::getTotalQuantity()==0){
+        return back();
+       }
        
         $customer= Customer::where(['email'=>$_COOKIE['email'], '_token'=>$_COOKIE['_token']])->get();
   $phone= $customer[0]->phone;

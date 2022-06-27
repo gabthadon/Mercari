@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Customer;
 use App\Models\Rating;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -67,6 +68,18 @@ Rating::create([
 
      return  $rating;
        
+    }
+
+    public function find(){
+
+        $query=request('query');
+        $data= DB::table('posts')
+        ->where('title', 'like', '%'.$query.'%')
+        
+        
+       
+        ->inRandomOrder()
+        ->paginate(16);
     }
 
 

@@ -47,7 +47,9 @@
 @enderror
 </div>
 
-<div class="btn-proceed"><input  id="btn-pay" class="btn " style="width:100px" type="submit" value="Proceed"/></div>
+
+
+<div class="btn-proceed"><input  id="btn-pay" class="btn "  style="width:100px" type="submit" value="Proceed"/></div>
 </div>
 </form>
 

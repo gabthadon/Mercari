@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
 </head>
-<body>
+<body  style="width:100%">
 
 
     <div id="banner" >
@@ -63,7 +63,11 @@
     <div class="banner_side_content">
         <div class="banner_side_text1" >Find what you need, <br>
             sell what you don’t</div> 
-            <input class="form-control" type="text" placeholder="Search for one-of-a-kind finds">
+            <div id="searcharea">
+         <span @click="btn_search" id="img-search"> <img src="/images/icons/icons8-search-30.png" alt="" srcset=""></span> 
+
+<input class="form-control" id="home-search" v-model="query" type="text" placeholder="Search for one-of-a-kind finds"> 
+            </div>
         <div class="btn_search "><button class="btn">Apparel </button> </div>
         <div class="btn_search "><button class="btn">Gaming </button> </div>
         <div class="btn_search "><button class="btn">Collectibles </button> </div>
@@ -107,7 +111,8 @@
 
   @foreach($post as $posts)
   
-  <div >  <span class="tag1">SOLD</span> <a href="/{{$posts->id}}/{{$posts->slug}}"> <img class="slide_image" src="/storage/{{json_decode($posts->images[0])}}" alt="" srcset=""></a>
+  <div >  <span class="tag1">SOLD</span> <a href="/{{$posts->id}}/{{$posts->slug}}">
+     <img class="slide_image" src="/storage/{{$posts->image}}" alt="" srcset=""></a>
           
     <div class="tag2">₦{{number_format($posts->price)}}</div>
     <div class="item_title">  <a href="/{{$posts->id}}/{{$posts->slug}}">  {{substr($posts->title, 0, 20)}} </a>  @php if(strlen($posts->title) > 20) echo("....")  @endphp</div>

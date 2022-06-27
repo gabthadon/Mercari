@@ -46,6 +46,11 @@ padding-top: 30px;
 
 }
 
+#navbarSupportedContent ul{
+    position: absolute;
+    right: 5px;
+}
+
 .captch_text{
     font-size: 13px;
     padding-top: 15px;
@@ -65,6 +70,15 @@ padding-top: 30px;
 #icon_facebook{
     width: 40px;
     height: 40px;
+}
+
+#cart{
+    position: relative;
+
+}
+
+#app2{
+    padding-left: 150px;
 }
 
 #signin_text{
@@ -174,6 +188,13 @@ thead{
     font-size: 15px;
 }
 
+#img-search{
+    position: relative;
+   top:50px;
+  left:400px ;
+  width: 100%;
+}
+
 #cart{
     
     height: 30px;
@@ -185,7 +206,7 @@ thead{
 
 
 #btn_header{
-    background-color: white;
+  
     color: black;
     width: 120px;
     height: 30px;
@@ -292,7 +313,7 @@ thead{
 }
 
  a#dropdownMenuLink.btn.dropdown-toggle{
-    background-color:#ffffff
+   
 }
 
 #logout{
@@ -415,9 +436,13 @@ border-radius: 10px;
     width: 100%;
     height: auto;
     background-color: #ffae00; 
-  
-   
+
 }
+
+nav{
+    width:100%;
+  }
+
 
 .box_title{
     font-weight: bold;
@@ -560,14 +585,15 @@ padding-left: 100px;
 
 @media all and (max-width: 799px){
 
-    .banner_side_content{
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+    #home-search{
+        width: 300px;
     }
-
-
- 
+    
+    #img-search{
+        position: relative;
+        bottom: 65px;
+        left: 250px;
+    }
 
 
     .footer_text{
@@ -603,10 +629,9 @@ padding-left: 100px;
         padding-left: 20px;
 
     }
-    .btn_search{
-        padding-left: 1px;
-        
-    }
+   
+
+   
 
     .btn{
         width: auto;
@@ -642,9 +667,11 @@ padding-left: 100px;
     }
 
 
-    @media all and (max-width:600px){
+    @media all and (max-width:616px){
 
-        
+        .btn-search{
+            width: 5px;
+        }
         
 
         }
@@ -694,6 +721,10 @@ padding-left: 100px;
     .footer_image_box{
         position: absolute;
         right: 35px;
+    }
+
+    .btn-search{
+        width:5px;
     }
     
 

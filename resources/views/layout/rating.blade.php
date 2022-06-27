@@ -16,8 +16,8 @@
         <form action="" > 
           @csrf  
       <textarea class="form-control" name="" id="review-comment" rows="3" placeholder="Comment"></textarea>
-       <input type="hidden" value="{{$data->id}}" id="product-id">
-       <input type="hidden" value="{{$data->user->id}}" id="user-id">
+       <input type="hidden" value="{{$post[0]->id}}" id="product-id">
+       <input type="hidden" value="{{$post[0]->user->id}}" id="user-id">
       <br>
 
       <div id='star-rating'>

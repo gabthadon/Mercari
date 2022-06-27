@@ -21,8 +21,8 @@
             <article class="card">
                 <div class="card-body row">
                     <div class="col"> <strong>Estimated Delivery time:</strong> <br>29 nov 2019 </div>
-                    <div class="col"> <strong>Shipping BY:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i> +1598675986 </div>
-                    <div class="col"> <strong>Status:</strong> <br> {{$track[0]->status}} </div>
+                    <div class="col"> <strong>Status:</strong> <br> {{$status}} </div>
+                    <div class="col"> <strong>Details:</strong> <br> {{$track[0]->details}} </div>
                     <div class="col"> <strong>Tracking ID:</strong> <br> {{$track[0]->order_id}} </div>
                 </div>
             </article>

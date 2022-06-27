@@ -59,7 +59,27 @@ return view('admin.order', ['items'=>$order]);
     {
       $track= Tracking::where(['order_id'=>$order_id])->get();
 
-      return view('tracking.tracking', ['track'=>$track]);
+      if($track[0]->status==1){
+          $delivery_status="Order Confirmed";
+      }
+
+     else if($track[0]->status==2){
+        $delivery_status="Packaged For Delivery";
+    }
+
+    else if($track[0]->status==3){
+        $delivery_status="On The Way";
+    }
+
+    else if($track[0]->status==4){
+        $delivery_status="Ready For Pickup";
+    }
+
+    else if($track[0]->status==5){
+        $delivery_status="Delivered";
+    }
+dd(date($track[0]->created_at) );
+      return view('tracking.tracking', ['track'=>$track, 'status'=>$delivery_status]);
    
     }
 
