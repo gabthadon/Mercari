@@ -39,6 +39,7 @@ Route::get('/order/tracking', function () {
 
 
 
+Route::get('/find/{query}', [ProductController::class, 'find']);
 
 Route::get('/admin_rating/{id}', [ProductController::class, 'show']);
 

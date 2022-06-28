@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Customer;
+use App\Models\Rating;
 
 class HomeController extends Controller
 {
@@ -77,10 +78,14 @@ class HomeController extends Controller
       $image= $data[0]->images;
 
       $image =json_decode($image);
+      $author_id= $data[0]->author_id;
 
-     
+     $review=Rating::where(['user_id'=>$author_id])->get();
+
+   
+
        
-        return view('product_details', ['post'=>$data, 'prod_id'=>$id, 'prod_slug'=>$slug, 'images'=>$image]);
+        return view('product_details', ['post'=>$data, 'prod_id'=>$id, 'prod_slug'=>$slug, 'images'=>$image, 'reviews'=>$review]);
         
     }
 

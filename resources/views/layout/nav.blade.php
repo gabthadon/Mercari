@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><span class="menu_item"><img class="logo" src="/images/logos/gadgeduplogo-2.jpg" alt="" srcset=""></span></a>
    
-    <span  id="app2" ><img @click="showCart" data-bs-toggle="modal" data-bs-target="#cartModal"  src="/images/icons/icons8-cart-48.png" > <span>{{\Cart::getTotalQuantity()}} </span>
+    <span  id="app2" ><img @click="showCart" data-bs-toggle="modal" data-bs-target="#cartModal"  src="/images/icons/icons8-cart-48.png" > <span id="cart">{{\Cart::getTotalQuantity()}} </span>
 @include("layout/cart")
 </span>
 

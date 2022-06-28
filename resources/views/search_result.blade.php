@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 </style>
+
 <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="/slick/slick.css">
@@ -25,33 +27,24 @@
 
 @include('layout/nav')
 
-<div class="title1">PAYMENT DETAILS</div>
-<form method="GET" action="/process_payment">
+<div class="title1">SEARCH RESULT</div>
 
-<div style="margin-left:auto; margin-right:auto; width:40%; padding-top:50px">
-<div class="input"><input class="form-control" placeholder="Enter Phone Number" value="{{$phone}}" type="text" name="phone" id=""> 
-@error('phone')
-<span class='alert'>{{$message}}</span><br>
-@enderror
-</div>
 
-<div class="input"><input class="form-control" placeholder="Enter Other Phone Number" value="{{$ext_phone}}"  type="text" name="extra_phone" id=""> 
-@error('extra_phone')
-<span class='alert'>{{$message}}</span><br>
-@enderror</div>
+<div class="row">
+@foreach($post as $posts)
 
-<div class=""input>
-<textarea class="form-control" placeholder="Enter Address"  name="address" id=""  rows="5">{{$address}}</textarea> 
-@error('address')
-<span class='alert'>{{$message}}</span><br>
-@enderror
+<div class="col-md-3">   <a href="/{{$posts->id}}/{{$posts->slug}}">
+     <img class="slide_image" src="/storage/{{$posts->image}}" alt="" srcset=""></a>
+     @if($posts->state==2) <span class='tag-search'> Sold  @endif  </span>
+    
+    <div class="item_title">  <a href="/{{$posts->id}}/{{$posts->slug}}">  {{substr($posts->title, 0, 15)}} </a>  @php if(strlen($posts->title) > 15) echo("....")  @endphp</div>
+    <span class="price-tag">₦{{number_format($posts->price)}}</span>
+  </div>
+
+@endforeach
 </div>
 
 
-
-<div class="btn-proceed"><input  id="btn-pay" class="btn "  style="width:100px" type="submit" value="Proceed"/></div>
-</div>
-</form>
 
 <br><br><br><br><br>
 

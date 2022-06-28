@@ -70,16 +70,16 @@ Rating::create([
        
     }
 
-    public function find(){
+    public function find($query){
 
-        $query=request('query');
+        $query=$query;
         $data= DB::table('posts')
         ->where('title', 'like', '%'.$query.'%')
-        
-        
        
         ->inRandomOrder()
         ->paginate(16);
+
+       return view('search_result', ['post'=>$data]);
     }
 
 

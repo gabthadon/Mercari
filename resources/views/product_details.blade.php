@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/slick/slick.css">
   <link rel="stylesheet" href="/slick/slick-theme.css">
 <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
@@ -35,7 +36,8 @@
    <div class="row container-fluid">
 <div class="col-sm-6">
 
-<div class="prod_details"> <div class="faded"> @foreach($images as $image) <div class="prod_details"> <img class="faded" src="/storage/{{$image}}"  > </div>@endforeach
+<div class="prod_details"> <div class="faded"> @foreach($images as $image) <div class="prod_details">
+   <img class="faded" src="/storage/{{$image}}"  > </div>@endforeach
 </div>
 
     <div class="prod_layer2"> Have a similar item ? <span class="item1"> Sell yours</span>  
@@ -110,8 +112,58 @@ echo($post[0]->body)
    </div>
 
 
-   
+ 
+<div class="review-section">
+<div class="row">
+@foreach($reviews as $review)
+<div class="col-md-4">
+@if($review->rating==1)
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star "></span>
+<span class="fa fa-star "></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
 
+@elseif($review->rating==2)
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star "></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+
+@elseif($review->rating==3)
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+
+@elseif($review->rating==4)
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+
+@elseif($review->rating==5)
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+
+
+
+@endif
+
+  
+  <div class='comment'>{{$review->comment}} </div>
+<div>{{$review->customer->username}}</div>
+</div>
+
+@endforeach
+</div>
+</div>
 
 
 
